@@ -1,0 +1,21 @@
+version: '3.9'
+
+name: services
+
+services:
+  gcp-storage-emulator:
+    image: oittaa/gcp-storage-emulator
+    container_name: "gcp-storage-emulator"
+    hostname: gcp-storage-emulator
+    restart: always
+    ports:
+      - "9023:9023"
+    environment:
+      - PORT=9023
+    volumes:
+      - gcpstoragevolume:/storage
+
+volumes:
+    gcpstoragevolume:
+ 
+      
